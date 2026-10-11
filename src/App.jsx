@@ -137,13 +137,13 @@ const CartSidebar = () => {
   if (!isCartOpen) return null;
 
   const handleWhatsAppCheckout = () => {
-    if (!customerName) return showToast("⚠️ Ingresa tu nombre para continuar");
-    let msg = `Hola *Mil Detalles* ✨\nSoy ${customerName}.\nQuiero realizar este pedido:\n\n`;
+    if (!customerName) return showToast(" Ingresa tu nombre para continuar");
+    let msg = `Hola \nSoy ${customerName}.\nQuiero realizar este pedido:\n\n`;
     cart.forEach((item, i) => {
       msg += `▪️ *${item.name}* (x${item.quantity}) - $${(item.price * item.quantity).toLocaleString()}\n`;
     });
-    msg += `\n💰 *Total estimado: $${totalPrice.toLocaleString()}*\n`;
-    if (customerDetails) msg += `\n📝 *Notas:* ${customerDetails}\n`;
+    msg += `\n *Total estimado: $${totalPrice.toLocaleString()}*\n`;
+    if (customerDetails) msg += `\n *Notas:* ${customerDetails}\n`;
     window.open(`https://wa.me/573177869158?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
